@@ -6,11 +6,19 @@ from deepface import DeepFace
 import time
 from cam import Camera
 
-#######################
-# Определения сервиса для детекции лиц
 class ServiceDF(Service):
+    """
+    Класс ServiceDF расширяет функциональность базового класса Service,
+    предоставляя обработку видеопотока и распознавания лиц.
+    """
 
     def _do_job(self):
+        """
+        Переопределенный метод, выполняющий основную работу сервиса.
+
+        Включает в себя подключение к видеопотоку, обработку кадров и выполнение специализированных задач.
+        В случае исключений, передает их в обработчик запросов.
+        """
         try:
             self.__init_vars()
 
@@ -48,6 +56,15 @@ class ServiceDF(Service):
 
 
     def _request_handler(self, request):
+        """
+        Переопределенный метод для обработки входящих запросов.
+
+        :param request: Входящий запрос.
+        :type request: str
+        :return: Ответ на запрос.
+        :rtype: str
+        """
+
         # https://docs.google.com/document/d/1wzAFfvVaIiOorsixK455Tr-vMfUOrCPk9_qPgOyx29U/edit
         encode_params = [int(cv2.IMWRITE_JPEG_QUALITY), 90]
         # GET FRAME
@@ -135,6 +152,9 @@ class ServiceDF(Service):
 
     # Вспомогательная функция
     def __init_vars(self):
+        """
+        Приватный метод для установки параметров по умолчанию.
+        """
         self._threshold = 0.667
         self._set_target = False
         self._frame = None
@@ -151,6 +171,9 @@ class ServiceDF(Service):
 
     # Вспомогательная функция
     def __specific_work(self):
+        """
+        Приватный метод для нахождения таргета.
+        """
 
         extractor = DeepFace.extract_faces(
             self._frame, enforce_detection=False, 
@@ -216,4 +239,7 @@ class ServiceDF(Service):
         pass
 
     def __resp_hand(self, response):
+        """
+        Приватный метод для обработки ответа (пуст).
+        """
         pass

@@ -6,8 +6,28 @@ from typing import Optional, Callable
 
 
 class Service(ABC):
-    # private:
+    """
+    Базовый класс для создания сервисов с сетевым функционалом.
+
+    :ip (str): IP-адрес сервиса.
+    :port (int): Порт сервиса.
+    :n_conn (int): Количество подключений, которые может обрабатывать сервер.
+    :timeout (int): Таймаут для сокета.
+    :need_job_break (bool): Флаг для остановки задачи сервиса.
+    :need_job_pause (bool): Флаг для приостановки задачи сервиса.
+    :server_is_open (bool): Флаг, показывающий, открыт ли сервер.
+    :need_restart (bool): Флаг для перезапуска сервиса.
+    :server (socket): Сокет сервера.
+    :connected_clients (list): Список подключенных клиентов.
+    """
     def __init__(self, ip_: str, port_: int, n_conn_=10):
+        """
+        Инициализация сервиса.
+
+        :param ip_ (str): IP-адрес для привязки сервера.
+        :param port_ (int): Порт для привязки сервера.
+        :param n_conn_ (int): Максимальное количество подключений. По умолчанию 10.
+        """
         self.ip = ip_
         self.port = port_
         self.n_conn = n_conn_
@@ -22,6 +42,13 @@ class Service(ABC):
         self.connected_clients = []
 
     def __recvall(self, sock: socket, n: int) -> bytearray:
+        """Приватный метод для получения сообщения из сокета.
+
+        :param sock: Сокет для чтения сообщения.
+        :type sock: socket
+        :return: Принятое сообщение.
+        :rtype: bytearray
+        """
         data = bytearray()
         while len(data) < n:
             print(n, len(data), n - len(data))
@@ -32,6 +59,14 @@ class Service(ABC):
         return data
 
     def __recv_msg(self, sock: socket) -> bytearray:
+        """
+        Приватный метод для получения сообщения из сокета.
+
+        :param sock: Сокет для чтения сообщения.
+        :type sock: socket
+        :return: Прочитанное сообщение.
+        :rtype: bytearray
+        """
         raw_msglen = self.__recvall(sock, 4)
         if not raw_msglen:
             return bytearray()
@@ -39,10 +74,24 @@ class Service(ABC):
         return self.__recvall(sock, msglen)
 
     def __send_msg(self, sock: socket, msg: bytes) -> None:
+        """
+        Приватный метод для отправки сообщения через сокет.
+
+        :param sock: Сокет для отправки сообщения.
+        :type sock: socket
+        :param msg: Сообщение, которое необходимо отправить.
+        :type msg: bytes
+        """
         msg = struct.pack('>I', len(msg)) + msg
         sock.sendall(msg)
 
     def __manage_clients(self) -> None:
+        """
+        Приватный метод для обработки входящих запросов.
+
+        Управляет запросами клиентов, обрабатывает команды управления сервисом (включить, выключить, закрыть,
+        перезапустить) и делегирует обработку остальных запросов `_request_handler`.
+        """
         service_closing_commands = []
         while True:
             if len(self.connected_clients) == 0 and not self.server_is_open:
@@ -79,17 +128,33 @@ class Service(ABC):
             if service_closing_commands[0] == "restart":
                 self.need_restart = True
 
-    # protected:
     @abstractmethod
     def _do_job(self):
+        """
+        Защищенный метод основной работы для переопределения.
+
+        Предполагается постоянная обработка входящей информации,
+        требуется реализовать возможность для паузы и полной остановки сервиса.
+        """
         pass
 
     @abstractmethod
     def _request_handler(self, request):
+        """
+        Защищенный метод обработки входящих запросов для переопределения.
+
+        Предполагается обработка запросов, специфичных для конкретного сервиса,
+        так как общие для всех сервисов запросы уже обрабатываются.
+        """
         pass
 
     def _run_client(self, ip: str, port: int, request: str,
                     response_handler: Optional[Callable[[str], None]] = None) -> None:
+        """
+        Вспомогательный защищенный метод для отправления запроса другому сервису.
+
+        Устанавливает соединение, отправляет запрос, получает ответ, решает, что делать с ответом.
+        """
         global client
         try:
             client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -110,10 +175,27 @@ class Service(ABC):
 
     # public:
     def run_client(self, ip: str, port: int, request: str, response_handler: Optional[Callable] = None) -> None:
+        """
+        Публичный метод для выполнения клиентского подключения и отправки запроса в отдельном потоке.
+
+        :param ip: IP-адрес сервера для подключения.
+        :type ip: str
+        :param port: Порт сервера для подключения.
+        :type port: int
+        :param request: Запрос для отправки на сервер.
+        :type request: str
+        :param response_handler: Функция обратного вызова для обработки ответа сервера, опциональный параметр.
+        :type response_handler: Callable[[str], None], optional
+        """
         client_thread = threading.Thread(target=self._run_client, args=(ip, port, request, response_handler,))
         client_thread.start()
 
     def start(self) -> None:
+        """
+        Метод для запуска сервиса.
+
+        Инициализирует сервер, начинает прослушивание на заданном IP и порту, и запускает потоки для управления задачами и клиентами.
+        """
         self.need_job_break = False
         self.need_job_pause = True
         self.server_is_open = True
@@ -146,16 +228,36 @@ class Service(ABC):
             self.restart()
 
     def stop(self) -> None:
+        """
+        Метод для остановки сервиса.
+
+        Закрывает сервер и устанавливает флаги для остановки обработки задач и клиентских запросов.
+        """
         self.server_is_open = False
         self.need_job_break = True
 
     def pause(self) -> None:
+        """
+        Метод для приостановки выполнения задач сервиса.
+
+        Устанавливает флаг, приостанавливающий обработку задач, но не оставляет сервис полностью.
+        """
         self.need_job_pause = False
 
     def unpause(self) -> None:
+        """
+        Метод для возобновления выполнения задач сервиса.
+
+        Снимает флаг приостановки, позволяя возобновить обработку задач.
+        """
         self.need_job_pause = True
 
     def restart(self) -> None:
+        """
+        Метод для перезапуска сервиса.
+
+        Останавливает текущий экземпляр сервиса и инициирует его заново.
+        """
         self.need_job_break = False
         self.need_job_pause = True
         self.server_is_open = True
