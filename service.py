@@ -81,6 +81,7 @@ class Service(ABC):
         :type sock: socket
         :param msg: Сообщение, которое необходимо отправить.
         :type msg: bytes
+        :rtype: None
         """
         msg = struct.pack('>I', len(msg)) + msg
         sock.sendall(msg)
@@ -91,6 +92,8 @@ class Service(ABC):
 
         Управляет запросами клиентов, обрабатывает команды управления сервисом (включить, выключить, закрыть,
         перезапустить) и делегирует обработку остальных запросов `_request_handler`.
+
+        :rtype: None
         """
         service_closing_commands = []
         while True:
@@ -162,6 +165,7 @@ class Service(ABC):
         :type request: str
         :param response_handler: Функция обратного вызова для обработки ответа сервера, опциональный параметр.
         :type response_handler: Callable[[str], None], optional
+        :rtype: None
         """
         global client
         try:
@@ -194,6 +198,7 @@ class Service(ABC):
         :type request: str
         :param response_handler: Функция обратного вызова для обработки ответа сервера, опциональный параметр.
         :type response_handler: Callable[[str], None], optional
+        :rtype: None
         """
         client_thread = threading.Thread(target=self._run_client, args=(ip, port, request, response_handler,))
         client_thread.start()
@@ -203,6 +208,8 @@ class Service(ABC):
         Метод для запуска сервиса.
 
         Инициализирует сервер, начинает прослушивание на заданном IP и порту, и запускает потоки для управления задачами и клиентами.
+
+        :rtype: None
         """
         self.need_job_break = False
         self.need_job_pause = True
@@ -240,6 +247,8 @@ class Service(ABC):
         Метод для остановки сервиса.
 
         Закрывает сервер и устанавливает флаги для остановки обработки задач и клиентских запросов.
+
+        :rtype: None
         """
         self.server_is_open = False
         self.need_job_break = True
@@ -249,6 +258,8 @@ class Service(ABC):
         Метод для приостановки выполнения задач сервиса.
 
         Устанавливает флаг, приостанавливающий обработку задач, но не оставляет сервис полностью.
+
+        :rtype: None
         """
         self.need_job_pause = False
 
@@ -257,6 +268,8 @@ class Service(ABC):
         Метод для возобновления выполнения задач сервиса.
 
         Снимает флаг приостановки, позволяя возобновить обработку задач.
+
+        :rtype: None
         """
         self.need_job_pause = True
 
@@ -265,6 +278,8 @@ class Service(ABC):
         Метод для перезапуска сервиса.
 
         Останавливает текущий экземпляр сервиса и инициирует его заново.
+
+        :rtype: None
         """
         self.need_job_break = False
         self.need_job_pause = True

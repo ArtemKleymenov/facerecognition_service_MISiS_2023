@@ -16,6 +16,7 @@ class Camera:
         Инициализация.
 
         :param rtsp_link (str): ссылка для подключения к физической камере.
+        :rtype: None
         """
         capture = cv2.VideoCapture(rtsp_link)
         thread = threading.Thread(target=self.rtsp_cam_buffer, args=(capture,), name = "rtsp_read_thread")
@@ -27,6 +28,7 @@ class Camera:
         Зачитывание кадра.
 
         :param capture: открытый поток.
+        :rtype: None
         """
         while True:
             with self.lock:
@@ -36,6 +38,8 @@ class Camera:
     def getFrame(self):
         """
         Получение кадра.
+
+        :rtype: ndarary | None
         """
         if (self.last_ready is not None) and (self.last_frame is not None):
             return self.last_frame.copy()

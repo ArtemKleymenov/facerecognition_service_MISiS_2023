@@ -74,11 +74,16 @@
 <dd><p>Приватный метод для обработки входящих запросов.</p>
 <p>Управляет запросами клиентов, обрабатывает команды управления сервисом (включить, выключить, закрыть,
 перезапустить) и делегирует обработку остальных запросов <cite>_request_handler</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="service.Service.__recv_msg">
-<span class="sig-name descname"><span class="pre">__recv_msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock:</span><span class="pre">socket</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytearray</span></span></span><a class="headerlink" href="#service.Service.__recv_msg" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__recv_msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock:</span> <span class="pre">socket</span> </span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytearray</span></span></span><a class="headerlink" href="#service.Service.__recv_msg" title="Link to this definition">¶</a></dt>
 <dd><p>Приватный метод для получения сообщения из сокета.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Параметры<span class="colon">:</span></dt>
@@ -95,7 +100,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="service.Service.__recvall">
-<span class="sig-name descname"><span class="pre">__recvall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock:</span><span class="pre">socket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n:</span> <span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytearray</span></span></span><a class="headerlink" href="#service.Service.__recvall" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__recvall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock:</span> <span class="pre">socket</span> </span></em>, <em class="sig-param"><span class="n"><span class="pre">n:</span> <span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytearray</span></span></span><a class="headerlink" href="#service.Service.__recvall" title="Link to this definition">¶</a></dt>
 <dd><p>Приватный метод для получения сообщения из сокета.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Параметры<span class="colon">:</span></dt>
@@ -112,7 +117,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="service.Service.__send_msg">
-<span class="sig-name descname"><span class="pre">__send_msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock:</span><span class="pre">socket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg:</span> <span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#service.Service.__send_msg" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__send_msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock:</span> <span class="pre">socket</span> </span></em>, <em class="sig-param"><span class="n"><span class="pre">msg:</span> <span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#service.Service.__send_msg" title="Link to this definition">¶</a></dt>
 <dd><p>Приватный метод для отправки сообщения через сокет.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Параметры<span class="colon">:</span></dt>
@@ -120,6 +125,9 @@
 <li><p><strong>sock</strong> (<em>socket</em>) – Сокет для отправки сообщения.</p></li>
 <li><p><strong>msg</strong> (<em>bytes</em>) – Сообщение, которое необходимо отправить.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Тип результата<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
@@ -159,6 +167,9 @@
 <li><p><strong>response_handler</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>]</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Функция обратного вызова для обработки ответа сервера, опциональный параметр.</p></li>
 </ul>
 </dd>
+<dt class="field-even">Тип результата<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -167,6 +178,11 @@
 <span class="sig-name descname"><span class="pre">pause</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#service.Service.pause" title="Link to this definition">¶</a></dt>
 <dd><p>Метод для приостановки выполнения задач сервиса.</p>
 <p>Устанавливает флаг, приостанавливающий обработку задач, но не оставляет сервис полностью.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -174,6 +190,11 @@
 <span class="sig-name descname"><span class="pre">restart</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#service.Service.restart" title="Link to this definition">¶</a></dt>
 <dd><p>Метод для перезапуска сервиса.</p>
 <p>Останавливает текущий экземпляр сервиса и инициирует его заново.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -189,6 +210,9 @@
 <li><p><strong>response_handler</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>]</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Функция обратного вызова для обработки ответа сервера, опциональный параметр.</p></li>
 </ul>
 </dd>
+<dt class="field-even">Тип результата<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -197,6 +221,11 @@
 <span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#service.Service.start" title="Link to this definition">¶</a></dt>
 <dd><p>Метод для запуска сервиса.</p>
 <p>Инициализирует сервер, начинает прослушивание на заданном IP и порту, и запускает потоки для управления задачами и клиентами.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -204,6 +233,11 @@
 <span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#service.Service.stop" title="Link to this definition">¶</a></dt>
 <dd><p>Метод для остановки сервиса.</p>
 <p>Закрывает сервер и устанавливает флаги для остановки обработки задач и клиентских запросов.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -211,6 +245,11 @@
 <span class="sig-name descname"><span class="pre">unpause</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#service.Service.unpause" title="Link to this definition">¶</a></dt>
 <dd><p>Метод для возобновления выполнения задач сервиса.</p>
 <p>Снимает флаг приостановки, позволяя возобновить обработку задач.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

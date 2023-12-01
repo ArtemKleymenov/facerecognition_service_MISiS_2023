@@ -18,6 +18,8 @@ class ServiceDF(Service):
 
         Включает в себя подключение к видеопотоку, обработку кадров и выполнение специализированных задач.
         В случае исключений, передает их в обработчик запросов.
+
+        :rtype: None
         """
         try:
             self.__init_vars()
@@ -154,6 +156,8 @@ class ServiceDF(Service):
     def __init_vars(self):
         """
         Приватный метод для установки параметров по умолчанию.
+
+        :rtype: None
         """
         self._threshold = 0.667
         self._set_target = False
@@ -173,6 +177,8 @@ class ServiceDF(Service):
     def __specific_work(self):
         """
         Приватный метод для нахождения таргета.
+
+        :rtype: None
         """
 
         extractor = DeepFace.extract_faces(
@@ -241,5 +247,7 @@ class ServiceDF(Service):
     def __resp_hand(self, response):
         """
         Приватный метод для обработки ответа (пуст).
+
+        :rtype: None
         """
         pass
