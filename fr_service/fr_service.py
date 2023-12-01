@@ -1,14 +1,15 @@
 import numpy as np
 import cv2
-from service import Service
-import base64
 from deepface import DeepFace
+import base64
 import time
-from cam import Camera
 
-class ServiceDF(Service):
+from fr_service.service import Service
+from custom_cam.cam import Camera
+
+class ServiceFR(Service):
     """
-    Класс ServiceDF расширяет функциональность базового класса Service,
+    Класс ServiceFR расширяет функциональность базового класса Service,
     предоставляя обработку видеопотока и распознавания лиц.
     """
 
@@ -18,6 +19,8 @@ class ServiceDF(Service):
 
         Включает в себя подключение к видеопотоку, обработку кадров и выполнение специализированных задач.
         В случае исключений, передает их в обработчик запросов.
+
+        :rtype: None
         """
         try:
             self.__init_vars()
@@ -39,18 +42,13 @@ class ServiceDF(Service):
                 if self._frame is None:
                     continue
                 try:
-                    # Our operations on the frame come here
+                    # Обработка кадров
                     self.__specific_work()
                 except Exception as e:
                     print('Exception:', e)
                     break
-                # Display the resulting frame
-                # cv2.imshow('frame', self._frame)
-                # if cv2.waitKey(5) == ord('q'):
-                #     break        
         finally:    
-            # When everything done, release the capture
-            # cap.release()
+            # Когда работа окончена, следует остановить сервис
             cv2.destroyAllWindows()
             self.stop()
 
@@ -58,6 +56,7 @@ class ServiceDF(Service):
     def _request_handler(self, request):
         """
         Переопределенный метод для обработки входящих запросов.
+        Полный список API-запросов доступен `здесь <https://github.com/ArtemKleymenov/facerecognition_service_MISiS_2023/tree/main#api-сервиса>`
 
         :param request: Входящий запрос.
         :type request: str
@@ -154,6 +153,8 @@ class ServiceDF(Service):
     def __init_vars(self):
         """
         Приватный метод для установки параметров по умолчанию.
+
+        :rtype: None
         """
         self._threshold = 0.667
         self._set_target = False
@@ -173,6 +174,8 @@ class ServiceDF(Service):
     def __specific_work(self):
         """
         Приватный метод для нахождения таргета.
+
+        :rtype: None
         """
 
         extractor = DeepFace.extract_faces(
@@ -181,7 +184,7 @@ class ServiceDF(Service):
             target_size=[256, 256]
         )
 
-        # define target person/face
+        # Установка отслеживаемого/идентифицируемого лица
         if self._set_target:
             if extractor[0] is not None\
                 and extractor[0]['confidence'] > self._threshold:
@@ -193,8 +196,8 @@ class ServiceDF(Service):
                     model_name='ArcFace')
 
         color = (0, 0, 255)
-        # check: is the best* face our target face?
-        # *have the largest confidence
+        # Проверка: Лучшее* найденное на кадре лицо это наше таргетное лицо?
+        # *имеющее наибольшее значение поля confidence
         for i, face_dict in enumerate(extractor):
             if face_dict['confidence'] < 0.01 or self._target_embed is None:
                 break
@@ -241,5 +244,7 @@ class ServiceDF(Service):
     def __resp_hand(self, response):
         """
         Приватный метод для обработки ответа (пуст).
+
+        :rtype: None
         """
         pass
