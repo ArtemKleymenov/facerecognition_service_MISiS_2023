@@ -78,7 +78,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="service.Service.__recv_msg">
-<span class="sig-name descname"><span class="pre">__recv_msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock:</span> <span class="pre">&lt;module</span> <span class="pre">'socket'</span> <span class="pre">from</span> <span class="pre">'C:\\Users\\tillf\\AppData\\Local\\Programs\\Python\\Python39\\lib\\socket.py'&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytearray</span></span></span><a class="headerlink" href="#service.Service.__recv_msg" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__recv_msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock:</span><span class="pre">socket</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytearray</span></span></span><a class="headerlink" href="#service.Service.__recv_msg" title="Link to this definition">¶</a></dt>
 <dd><p>Приватный метод для получения сообщения из сокета.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Параметры<span class="colon">:</span></dt>
@@ -95,7 +95,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="service.Service.__recvall">
-<span class="sig-name descname"><span class="pre">__recvall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock:</span> <span class="pre">&lt;module</span> <span class="pre">'socket'</span> <span class="pre">from</span> <span class="pre">'C:\\Users\\tillf\\AppData\\Local\\Programs\\Python\\Python39\\lib\\socket.py'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n:</span> <span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytearray</span></span></span><a class="headerlink" href="#service.Service.__recvall" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__recvall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock:</span><span class="pre">socket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n:</span> <span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytearray</span></span></span><a class="headerlink" href="#service.Service.__recvall" title="Link to this definition">¶</a></dt>
 <dd><p>Приватный метод для получения сообщения из сокета.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Параметры<span class="colon">:</span></dt>
@@ -112,7 +112,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="service.Service.__send_msg">
-<span class="sig-name descname"><span class="pre">__send_msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock:</span> <span class="pre">&lt;module</span> <span class="pre">'socket'</span> <span class="pre">from</span> <span class="pre">'C:\\Users\\tillf\\AppData\\Local\\Programs\\Python\\Python39\\lib\\socket.py'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg:</span> <span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#service.Service.__send_msg" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__send_msg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sock:</span><span class="pre">socket</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg:</span> <span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#service.Service.__send_msg" title="Link to this definition">¶</a></dt>
 <dd><p>Приватный метод для отправки сообщения через сокет.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Параметры<span class="colon">:</span></dt>
@@ -148,8 +148,18 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="service.Service._run_client">
 <span class="sig-name descname"><span class="pre">_run_client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#service.Service._run_client" title="Link to this definition">¶</a></dt>
-<dd><p>Вспомогательный защищенный метод для отправления запроса другому сервису.</p>
-<p>Устанавливает соединение, отправляет запрос, получает ответ, решает, что делать с ответом.</p>
+<dd><p>Вспомогательный защищенный метод для отправления запроса другому сервису. Устанавливает соединение, отправляет
+запрос, получает ответ, решает, что делать с ответом.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ip</strong> (<em>str</em>) – IP-адрес сервера для подключения.</p></li>
+<li><p><strong>port</strong> (<em>int</em>) – Порт сервера для подключения.</p></li>
+<li><p><strong>request</strong> (<em>str</em>) – Запрос для отправки на сервер.</p></li>
+<li><p><strong>response_handler</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>]</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – Функция обратного вызова для обработки ответа сервера, опциональный параметр.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">

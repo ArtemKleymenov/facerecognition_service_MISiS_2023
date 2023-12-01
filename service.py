@@ -151,9 +151,17 @@ class Service(ABC):
     def _run_client(self, ip: str, port: int, request: str,
                     response_handler: Optional[Callable[[str], None]] = None) -> None:
         """
-        Вспомогательный защищенный метод для отправления запроса другому сервису.
+        Вспомогательный защищенный метод для отправления запроса другому сервису. Устанавливает соединение, отправляет
+        запрос, получает ответ, решает, что делать с ответом.
 
-        Устанавливает соединение, отправляет запрос, получает ответ, решает, что делать с ответом.
+        :param ip: IP-адрес сервера для подключения.
+        :type ip: str
+        :param port: Порт сервера для подключения.
+        :type port: int
+        :param request: Запрос для отправки на сервер.
+        :type request: str
+        :param response_handler: Функция обратного вызова для обработки ответа сервера, опциональный параметр.
+        :type response_handler: Callable[[str], None], optional
         """
         global client
         try:
