@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="ru" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>&lt;no title&gt; &#8212; документация Face Recognition </title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
+    <script src="_static/documentation_options.js?v=372fde1a"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=29b1f277"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="face_recognition.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="sockets.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <dl class="py class">
+<dt class="sig sig-object py" id="custom_cam.cam.Camera">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">custom_cam.cam.</span></span><span class="sig-name descname"><span class="pre">Camera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rtsp_link</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#custom_cam.cam.Camera" title="Link to this definition">¶</a></dt>
+<dd><p>Класс Camera для работы с потоком кадров.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="custom_cam.cam.Camera.getFrame">
+<span class="sig-name descname"><span class="pre">getFrame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#custom_cam.cam.Camera.getFrame" title="Link to this definition">¶</a></dt>
+<dd><p>Получение кадра.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="custom_cam.cam.Camera.last_frame">
+<span class="sig-name descname"><span class="pre">last_frame</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#custom_cam.cam.Camera.last_frame" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="custom_cam.cam.Camera.last_ready">
+<span class="sig-name descname"><span class="pre">last_ready</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#custom_cam.cam.Camera.last_ready" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="custom_cam.cam.Camera.lock">
+<span class="sig-name descname"><span class="pre">lock</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;unlocked</span> <span class="pre">_thread.lock</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#custom_cam.cam.Camera.lock" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="custom_cam.cam.Camera.rtsp_cam_buffer">
+<span class="sig-name descname"><span class="pre">rtsp_cam_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">capture</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#custom_cam.cam.Camera.rtsp_cam_buffer" title="Link to this definition">¶</a></dt>
+<dd><p>Зачитывание кадра.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>capture</strong> – Экземпляр класса для захвата видео из видеофайлов, последовательностей изображений или камер.</p>
+</dd>
+</dl>
+<p><cite>Подробнее &lt;https://docs.opencv.org/3.4/d8/dfe/classcv_1_1VideoCapture.html&gt;</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Face Recognition</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навигация</h3>
+<p class="caption" role="heading"><span class="caption-text">Получение запросов и отправление результатов другим микросервисам</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sockets.html"><code class="docutils literal notranslate"><span class="pre">Service</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Получение кадров с камеры</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#custom_cam.cam.Camera.getFrame"><code class="docutils literal notranslate"><span class="pre">Camera.getFrame()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom_cam.cam.Camera.last_frame"><code class="docutils literal notranslate"><span class="pre">Camera.last_frame</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom_cam.cam.Camera.last_ready"><code class="docutils literal notranslate"><span class="pre">Camera.last_ready</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom_cam.cam.Camera.lock"><code class="docutils literal notranslate"><span class="pre">Camera.lock</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom_cam.cam.Camera.rtsp_cam_buffer"><code class="docutils literal notranslate"><span class="pre">Camera.rtsp_cam_buffer()</span></code></a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Детектирование присутсвующих лиц, распознавание таргета</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="face_recognition.html"><code class="docutils literal notranslate"><span class="pre">ServiceFR</span></code></a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="sockets.html" title="предыдущая глава">&lt;no title&gt;</a></li>
+      <li>Next: <a href="face_recognition.html" title="следующая глава">&lt;no title&gt;</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Быстрый поиск</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, NUST MISIS.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/camera.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

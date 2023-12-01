@@ -1,4 +1,4 @@
-.. autoclass:: fr_service.service.Service
+.. autoclass:: custom_cam.cam.Camera
    :members:
    :undoc-members:
    :private-members:

@@ -32,45 +32,66 @@
           <div class="body" role="main">
             
   <dl class="py class">
-<dt class="sig sig-object py" id="df_service.ServiceDF">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">df_service.</span></span><span class="sig-name descname"><span class="pre">ServiceDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_conn_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#df_service.ServiceDF" title="Link to this definition">¶</a></dt>
-<dd><p>Класс ServiceDF расширяет функциональность базового класса Service,
+<dt class="sig sig-object py" id="fr_service.fr_service.ServiceFR">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fr_service.fr_service.</span></span><span class="sig-name descname"><span class="pre">ServiceFR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port_</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_conn_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fr_service.fr_service.ServiceFR" title="Link to this definition">¶</a></dt>
+<dd><p>Класс ServiceFR расширяет функциональность базового класса Service,
 предоставляя обработку видеопотока и распознавания лиц.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="df_service.ServiceDF.__init_vars">
-<span class="sig-name descname"><span class="pre">__init_vars</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#df_service.ServiceDF.__init_vars" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="fr_service.fr_service.ServiceFR.__init_vars">
+<span class="sig-name descname"><span class="pre">__init_vars</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fr_service.fr_service.ServiceFR.__init_vars" title="Link to this definition">¶</a></dt>
 <dd><p>Приватный метод для установки параметров по умолчанию.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="df_service.ServiceDF.__resp_hand">
-<span class="sig-name descname"><span class="pre">__resp_hand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#df_service.ServiceDF.__resp_hand" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="fr_service.fr_service.ServiceFR.__resp_hand">
+<span class="sig-name descname"><span class="pre">__resp_hand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fr_service.fr_service.ServiceFR.__resp_hand" title="Link to this definition">¶</a></dt>
 <dd><p>Приватный метод для обработки ответа (пуст).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="df_service.ServiceDF.__specific_work">
-<span class="sig-name descname"><span class="pre">__specific_work</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#df_service.ServiceDF.__specific_work" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="fr_service.fr_service.ServiceFR.__specific_work">
+<span class="sig-name descname"><span class="pre">__specific_work</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fr_service.fr_service.ServiceFR.__specific_work" title="Link to this definition">¶</a></dt>
 <dd><p>Приватный метод для нахождения таргета.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="df_service.ServiceDF._abc_impl">
-<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#df_service.ServiceDF._abc_impl" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="fr_service.fr_service.ServiceFR._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#fr_service.fr_service.ServiceFR._abc_impl" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="df_service.ServiceDF._do_job">
-<span class="sig-name descname"><span class="pre">_do_job</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#df_service.ServiceDF._do_job" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="fr_service.fr_service.ServiceFR._do_job">
+<span class="sig-name descname"><span class="pre">_do_job</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fr_service.fr_service.ServiceFR._do_job" title="Link to this definition">¶</a></dt>
 <dd><p>Переопределенный метод, выполняющий основную работу сервиса.</p>
 <p>Включает в себя подключение к видеопотоку, обработку кадров и выполнение специализированных задач.
 В случае исключений, передает их в обработчик запросов.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="df_service.ServiceDF._request_handler">
-<span class="sig-name descname"><span class="pre">_request_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#df_service.ServiceDF._request_handler" title="Link to this definition">¶</a></dt>
-<dd><p>Переопределенный метод для обработки входящих запросов.</p>
+<dt class="sig sig-object py" id="fr_service.fr_service.ServiceFR._request_handler">
+<span class="sig-name descname"><span class="pre">_request_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fr_service.fr_service.ServiceFR._request_handler" title="Link to this definition">¶</a></dt>
+<dd><p>Переопределенный метод для обработки входящих запросов.
+Полный список API-запросов доступен <cite>здесь &lt;https://github.com/ArtemKleymenov/facerecognition_service_MISiS_2023/tree/main#api-сервиса&gt;</cite></p>
 <dl class="field-list simple">
 <dt class="field-odd">Параметры<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>request</strong> (<em>str</em>) – Входящий запрос.</p>
@@ -80,44 +101,6 @@
 </dd>
 <dt class="field-odd">Тип результата<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="cam.Camera">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cam.</span></span><span class="sig-name descname"><span class="pre">Camera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rtsp_link</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cam.Camera" title="Link to this definition">¶</a></dt>
-<dd><p>Класс Camera для работы с потоком кадров.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="cam.Camera.getFrame">
-<span class="sig-name descname"><span class="pre">getFrame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cam.Camera.getFrame" title="Link to this definition">¶</a></dt>
-<dd><p>Получение кадра.</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cam.Camera.last_frame">
-<span class="sig-name descname"><span class="pre">last_frame</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#cam.Camera.last_frame" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cam.Camera.last_ready">
-<span class="sig-name descname"><span class="pre">last_ready</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#cam.Camera.last_ready" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="cam.Camera.lock">
-<span class="sig-name descname"><span class="pre">lock</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;unlocked</span> <span class="pre">_thread.lock</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#cam.Camera.lock" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cam.Camera.rtsp_cam_buffer">
-<span class="sig-name descname"><span class="pre">rtsp_cam_buffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">capture</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cam.Camera.rtsp_cam_buffer" title="Link to this definition">¶</a></dt>
-<dd><p>Зачитывание кадра.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Параметры<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>capture</strong> – открытый поток.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -148,21 +131,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Детектирование присутсвующих лиц, распознавание таргета</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">ServiceDF</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#df_service.ServiceDF.__init_vars"><code class="docutils literal notranslate"><span class="pre">ServiceDF.__init_vars()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#df_service.ServiceDF.__resp_hand"><code class="docutils literal notranslate"><span class="pre">ServiceDF.__resp_hand()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#df_service.ServiceDF.__specific_work"><code class="docutils literal notranslate"><span class="pre">ServiceDF.__specific_work()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#df_service.ServiceDF._abc_impl"><code class="docutils literal notranslate"><span class="pre">ServiceDF._abc_impl</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#df_service.ServiceDF._do_job"><code class="docutils literal notranslate"><span class="pre">ServiceDF._do_job()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#df_service.ServiceDF._request_handler"><code class="docutils literal notranslate"><span class="pre">ServiceDF._request_handler()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#cam.Camera"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#cam.Camera.getFrame"><code class="docutils literal notranslate"><span class="pre">Camera.getFrame()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cam.Camera.last_frame"><code class="docutils literal notranslate"><span class="pre">Camera.last_frame</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cam.Camera.last_ready"><code class="docutils literal notranslate"><span class="pre">Camera.last_ready</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cam.Camera.lock"><code class="docutils literal notranslate"><span class="pre">Camera.lock</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cam.Camera.rtsp_cam_buffer"><code class="docutils literal notranslate"><span class="pre">Camera.rtsp_cam_buffer()</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">ServiceFR</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fr_service.fr_service.ServiceFR.__init_vars"><code class="docutils literal notranslate"><span class="pre">ServiceFR.__init_vars()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fr_service.fr_service.ServiceFR.__resp_hand"><code class="docutils literal notranslate"><span class="pre">ServiceFR.__resp_hand()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fr_service.fr_service.ServiceFR.__specific_work"><code class="docutils literal notranslate"><span class="pre">ServiceFR.__specific_work()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fr_service.fr_service.ServiceFR._abc_impl"><code class="docutils literal notranslate"><span class="pre">ServiceFR._abc_impl</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fr_service.fr_service.ServiceFR._do_job"><code class="docutils literal notranslate"><span class="pre">ServiceFR._do_job()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fr_service.fr_service.ServiceFR._request_handler"><code class="docutils literal notranslate"><span class="pre">ServiceFR._request_handler()</span></code></a></li>
 </ul>
 </li>
 </ul>
