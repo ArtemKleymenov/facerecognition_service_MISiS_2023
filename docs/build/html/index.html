@@ -41,52 +41,60 @@
 <p class="caption" role="heading"><span class="caption-text">Получение запросов и отправление результатов другим микросервисам</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sockets.html"><code class="docutils literal notranslate"><span class="pre">Service</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service.__manage_clients"><code class="docutils literal notranslate"><span class="pre">Service.__manage_clients()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service.__recv_msg"><code class="docutils literal notranslate"><span class="pre">Service.__recv_msg()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service.__recvall"><code class="docutils literal notranslate"><span class="pre">Service.__recvall()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service.__send_msg"><code class="docutils literal notranslate"><span class="pre">Service.__send_msg()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service._abc_impl"><code class="docutils literal notranslate"><span class="pre">Service._abc_impl</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service._do_job"><code class="docutils literal notranslate"><span class="pre">Service._do_job()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service._request_handler"><code class="docutils literal notranslate"><span class="pre">Service._request_handler()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service._run_client"><code class="docutils literal notranslate"><span class="pre">Service._run_client()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service.pause"><code class="docutils literal notranslate"><span class="pre">Service.pause()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service.restart"><code class="docutils literal notranslate"><span class="pre">Service.restart()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service.run_client"><code class="docutils literal notranslate"><span class="pre">Service.run_client()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service.start"><code class="docutils literal notranslate"><span class="pre">Service.start()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service.stop"><code class="docutils literal notranslate"><span class="pre">Service.stop()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="sockets.html#service.Service.unpause"><code class="docutils literal notranslate"><span class="pre">Service.unpause()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service.__manage_clients"><code class="docutils literal notranslate"><span class="pre">Service.__manage_clients()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service.__recv_msg"><code class="docutils literal notranslate"><span class="pre">Service.__recv_msg()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service.__recvall"><code class="docutils literal notranslate"><span class="pre">Service.__recvall()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service.__send_msg"><code class="docutils literal notranslate"><span class="pre">Service.__send_msg()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service._abc_impl"><code class="docutils literal notranslate"><span class="pre">Service._abc_impl</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service._do_job"><code class="docutils literal notranslate"><span class="pre">Service._do_job()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service._request_handler"><code class="docutils literal notranslate"><span class="pre">Service._request_handler()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service._run_client"><code class="docutils literal notranslate"><span class="pre">Service._run_client()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service.pause"><code class="docutils literal notranslate"><span class="pre">Service.pause()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service.restart"><code class="docutils literal notranslate"><span class="pre">Service.restart()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service.run_client"><code class="docutils literal notranslate"><span class="pre">Service.run_client()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service.start"><code class="docutils literal notranslate"><span class="pre">Service.start()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service.stop"><code class="docutils literal notranslate"><span class="pre">Service.stop()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="sockets.html#fr_service.service.Service.unpause"><code class="docutils literal notranslate"><span class="pre">Service.unpause()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </div>
 </section>
 <section id="id3">
-<h2>Распознавание лиц<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<h2>Поток с камеры<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Детектирование присутсвующих лиц, распознавание таргета</span></p>
+<p class="caption" role="heading"><span class="caption-text">Получение кадров с камеры</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="face_recognition.html"><code class="docutils literal notranslate"><span class="pre">ServiceDF</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#df_service.ServiceDF.__init_vars"><code class="docutils literal notranslate"><span class="pre">ServiceDF.__init_vars()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#df_service.ServiceDF.__resp_hand"><code class="docutils literal notranslate"><span class="pre">ServiceDF.__resp_hand()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#df_service.ServiceDF.__specific_work"><code class="docutils literal notranslate"><span class="pre">ServiceDF.__specific_work()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#df_service.ServiceDF._abc_impl"><code class="docutils literal notranslate"><span class="pre">ServiceDF._abc_impl</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#df_service.ServiceDF._do_job"><code class="docutils literal notranslate"><span class="pre">ServiceDF._do_job()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#df_service.ServiceDF._request_handler"><code class="docutils literal notranslate"><span class="pre">ServiceDF._request_handler()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="face_recognition.html#cam.Camera"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a><ul>
-<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#cam.Camera.getFrame"><code class="docutils literal notranslate"><span class="pre">Camera.getFrame()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#cam.Camera.last_frame"><code class="docutils literal notranslate"><span class="pre">Camera.last_frame</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#cam.Camera.last_ready"><code class="docutils literal notranslate"><span class="pre">Camera.last_ready</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#cam.Camera.lock"><code class="docutils literal notranslate"><span class="pre">Camera.lock</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#cam.Camera.rtsp_cam_buffer"><code class="docutils literal notranslate"><span class="pre">Camera.rtsp_cam_buffer()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="camera.html#custom_cam.cam.Camera.getFrame"><code class="docutils literal notranslate"><span class="pre">Camera.getFrame()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="camera.html#custom_cam.cam.Camera.last_frame"><code class="docutils literal notranslate"><span class="pre">Camera.last_frame</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="camera.html#custom_cam.cam.Camera.last_ready"><code class="docutils literal notranslate"><span class="pre">Camera.last_ready</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="camera.html#custom_cam.cam.Camera.lock"><code class="docutils literal notranslate"><span class="pre">Camera.lock</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="camera.html#custom_cam.cam.Camera.rtsp_cam_buffer"><code class="docutils literal notranslate"><span class="pre">Camera.rtsp_cam_buffer()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </div>
 </section>
 <section id="id4">
-<h2>Справка<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<h2>Распознавание лиц<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Детектирование присутсвующих лиц, распознавание таргета</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="face_recognition.html"><code class="docutils literal notranslate"><span class="pre">ServiceFR</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#fr_service.fr_service.ServiceFR.__init_vars"><code class="docutils literal notranslate"><span class="pre">ServiceFR.__init_vars()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#fr_service.fr_service.ServiceFR.__resp_hand"><code class="docutils literal notranslate"><span class="pre">ServiceFR.__resp_hand()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#fr_service.fr_service.ServiceFR.__specific_work"><code class="docutils literal notranslate"><span class="pre">ServiceFR.__specific_work()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#fr_service.fr_service.ServiceFR._abc_impl"><code class="docutils literal notranslate"><span class="pre">ServiceFR._abc_impl</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#fr_service.fr_service.ServiceFR._do_job"><code class="docutils literal notranslate"><span class="pre">ServiceFR._do_job()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="face_recognition.html#fr_service.fr_service.ServiceFR._request_handler"><code class="docutils literal notranslate"><span class="pre">ServiceFR._request_handler()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="id5">
+<h2>Справка<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Алфавитный указатель</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Состав модуля</span></a></p></li>
@@ -116,10 +124,13 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sockets.html"><code class="docutils literal notranslate"><span class="pre">Service</span></code></a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">Получение кадров с камеры</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="camera.html"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Детектирование присутсвующих лиц, распознавание таргета</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="face_recognition.html"><code class="docutils literal notranslate"><span class="pre">ServiceDF</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="face_recognition.html#cam.Camera"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="face_recognition.html"><code class="docutils literal notranslate"><span class="pre">ServiceFR</span></code></a></li>
 </ul>
 
 <div class="relations">

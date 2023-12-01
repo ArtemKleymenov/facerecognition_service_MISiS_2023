@@ -1,14 +1,15 @@
 import numpy as np
 import cv2
-from service import Service
-import base64
 from deepface import DeepFace
+import base64
 import time
-from cam import Camera
 
-class ServiceDF(Service):
+from fr_service.service import Service
+from custom_cam.cam import Camera
+
+class ServiceFR(Service):
     """
-    Класс ServiceDF расширяет функциональность базового класса Service,
+    Класс ServiceFR расширяет функциональность базового класса Service,
     предоставляя обработку видеопотока и распознавания лиц.
     """
 
@@ -41,18 +42,13 @@ class ServiceDF(Service):
                 if self._frame is None:
                     continue
                 try:
-                    # Our operations on the frame come here
+                    # Обработка кадров
                     self.__specific_work()
                 except Exception as e:
                     print('Exception:', e)
                     break
-                # Display the resulting frame
-                # cv2.imshow('frame', self._frame)
-                # if cv2.waitKey(5) == ord('q'):
-                #     break        
         finally:    
-            # When everything done, release the capture
-            # cap.release()
+            # Когда работа окончена, следует остановить сервис
             cv2.destroyAllWindows()
             self.stop()
 
@@ -60,6 +56,7 @@ class ServiceDF(Service):
     def _request_handler(self, request):
         """
         Переопределенный метод для обработки входящих запросов.
+        Полный список API-запросов доступен `здесь <https://github.com/ArtemKleymenov/facerecognition_service_MISiS_2023/tree/main#api-сервиса>`_.
 
         :param request: Входящий запрос.
         :type request: str
@@ -187,7 +184,7 @@ class ServiceDF(Service):
             target_size=[256, 256]
         )
 
-        # define target person/face
+        # Установка отслеживаемого/идентифицируемого лица
         if self._set_target:
             if extractor[0] is not None\
                 and extractor[0]['confidence'] > self._threshold:
@@ -199,8 +196,8 @@ class ServiceDF(Service):
                     model_name='ArcFace')
 
         color = (0, 0, 255)
-        # check: is the best* face our target face?
-        # *have the largest confidence
+        # Проверка: Лучшее* найденное на кадре лицо это наше таргетное лицо?
+        # *имеющее наибольшее значение поля confidence
         for i, face_dict in enumerate(extractor):
             if face_dict['confidence'] < 0.01 or self._target_embed is None:
                 break
@@ -221,7 +218,6 @@ class ServiceDF(Service):
                 else:
                     if self._target_in > 0:
                         self._target_in -= 1
-                cv2.imshow(f'Detected_{i}', face_dict['face'])
             except Exception as e:
                 print('Search common face error!', e)
             finally:
@@ -229,10 +225,18 @@ class ServiceDF(Service):
         # visualization
         if self._target_face is not None:
             pass
-            # cv2.imshow('Target', self._target_face)
+            _face = cv2.cvtColor(self._target_face, cv2.COLOR_BGR2RGB)
+            f = cv2.resize(_face, (self._frame.shape[1], self._frame.shape[0]))
+            cv2.imshow('Target', f)
 
         if self._face_rect is not None:
-            # pass
+            _value = "SAME"
+            if color[2] == 255:
+                _value = "NOT SAME"
+            cv2.putText(self._frame, _value,
+                        (self._face_rect['x'], self._face_rect['y']-10),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        1,color,2)
             cv2.rectangle(self._frame, (self._face_rect['x'], self._face_rect['y']),
                           (self._face_rect['x']+self._face_rect['w'], self._face_rect['y']+self._face_rect['h']), 
                           color, thickness=2)
