@@ -48,6 +48,16 @@ service_var.start()
 ```
 service_var.run_client("localhost", 8888, "disable")
 ```
+В случае, если запрос к сервису - не просто управляющая команда, а запрос на получение каких-то данных, может возникнуть
+потребность обработать полученные данные определённым образом. Для этого в вызов `run_client()` есть возможность 
+передать функцию обработчика ответа. Такая функция должна на вход принимать строку, например:
+```
+def response_handler(answer):
+   if "success" in answer:
+      print("Success operation!)
+
+service_var.run_client("localhost", 8888, "disable", response_handler)
+```
 
 ## API сервиса
 
