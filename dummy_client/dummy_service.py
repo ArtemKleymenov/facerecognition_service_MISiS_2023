@@ -17,9 +17,9 @@ class ServiceDummy(Service):
         Переопределенный метод, выполняющий основную работу сервиса.
         """
         try:
-            while True:
-                time.sleep(2)
-                self.getFrame(ip="localhost", port=8888)
+            # while True:
+            time.sleep(2)
+            self.startTracking(ip="localhost", port=8888)
         finally:    
             # Когда работа окончена, следует остановить сервис
             self.stop()
@@ -80,7 +80,7 @@ class ServiceDummy(Service):
     def applyThreshold(self, ip, port, thresh):
         _threshold = 'applyThreshold_' + str(thresh)
         self.run_client(ip=ip, port=port, request=_threshold,
-                        _request_handler=self.__resp_hand_apply_threshold)
+                        response_handler=self.__resp_hand_apply_threshold)
 
     # startTracking
     def __resp_hand_start_tracking(self, response):
@@ -88,7 +88,7 @@ class ServiceDummy(Service):
 
     def startTracking(self, ip, port):
         self.run_client(ip=ip, port=port, request='startTracking',
-                        _request_handler=self.__resp_hand_start_tracking)
+                        response_handler=self.__resp_hand_start_tracking)
 
     # target
     def __resp_hand_target(self, response):
@@ -96,7 +96,7 @@ class ServiceDummy(Service):
 
     def target(self, ip, port):
         self.run_client(ip=ip, port=port, request='target',
-                        _request_handler=self.__resp_hand_target)
+                        response_handler=self.__resp_hand_target)
     
     # stopTracking
     def __resp_hand_stop_tracking(self, response):
@@ -104,7 +104,7 @@ class ServiceDummy(Service):
 
     def stopTracking(self, ip, port):
         self.run_client(ip=ip, port=port, request='stopTracking',
-                        _request_handler=self.__resp_hand_stop_tracking)
+                        response_handler=self.__resp_hand_stop_tracking)
 
     # applyGrayscale
     def __resp_hand_apply_grayscale(self, response):
@@ -112,7 +112,7 @@ class ServiceDummy(Service):
 
     def applyGrayscale(self, ip, port):
         self.run_client(ip=ip, port=port, request='applyGrayscale',
-                        _response_handler=self.__resp_hand_apply_grayscale)
+                        response_handler=self.__resp_hand_apply_grayscale)
 
     # applyRgb
     def __resp_hand_apply_rgb(self, response):
@@ -120,7 +120,7 @@ class ServiceDummy(Service):
 
     def applyRgb(self, ip, port):
         self.run_client(ip=ip, port=port, request='applyRgb',
-                        _response_handler=self.__resp_hand_apply_rgb)
+                        response_handler=self.__resp_hand_apply_rgb)
 
     # getThreshold
     def __resp_hand_get_thresh(self, response):

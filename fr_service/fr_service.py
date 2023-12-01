@@ -226,10 +226,17 @@ class ServiceFR(Service):
         # visualization
         if self._target_face is not None:
             pass
-            # cv2.imshow('Target', self._target_face)
+            _face = cv2.cvtColor(self._target_face, cv2.COLOR_BGR2RGB)
+            cv2.imshow('Target', _face)
 
         if self._face_rect is not None:
-            # pass
+            _value = "SAME"
+            if color[2] == 255:
+                _value = "NOT SAME"
+            cv2.putText(self._frame, _value,
+                        (self._face_rect['x'], self._face_rect['y']+10),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        1,color,2)
             cv2.rectangle(self._frame, (self._face_rect['x'], self._face_rect['y']),
                           (self._face_rect['x']+self._face_rect['w'], self._face_rect['y']+self._face_rect['h']), 
                           color, thickness=2)
