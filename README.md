@@ -9,9 +9,9 @@
 6. [Авторы](#авторы)
 
 
-![Same person. ServiceFR](/assets/same_person.png "Пример идентификации целевого лица")
+![Same person. ServiceFR](/assets/same_pers.png "Пример идентификации целевого лица")
 
-![Same person. ServiceFR](/assets/not_same_person.png "Пример идентификации лица, которое не является целевым")
+![Same person. ServiceFR](/assets/not_same_pers.png "Пример идентификации лица, которое не является целевым")
 
 ## Описание структуры
 
