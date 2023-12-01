@@ -1,9 +1,4 @@
-.. autoclass:: df_service.ServiceDF
-   :members:
-   :undoc-members:
-   :private-members:
-
-.. autoclass:: cam.Camera
+.. autoclass:: fr_service.fr_service.ServiceFR
    :members:
    :undoc-members:
    :private-members:
