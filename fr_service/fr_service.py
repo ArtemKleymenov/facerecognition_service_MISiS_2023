@@ -56,7 +56,7 @@ class ServiceFR(Service):
     def _request_handler(self, request):
         """
         Переопределенный метод для обработки входящих запросов.
-        Полный список API-запросов доступен `здесь <https://github.com/ArtemKleymenov/facerecognition_service_MISiS_2023/tree/main#api-сервиса>`
+        Полный список API-запросов доступен `здесь <https://github.com/ArtemKleymenov/facerecognition_service_MISiS_2023/tree/main#api-сервиса>`_.
 
         :param request: Входящий запрос.
         :type request: str
@@ -218,7 +218,6 @@ class ServiceFR(Service):
                 else:
                     if self._target_in > 0:
                         self._target_in -= 1
-                cv2.imshow(f'Detected_{i}', face_dict['face'])
             except Exception as e:
                 print('Search common face error!', e)
             finally:
@@ -227,14 +226,15 @@ class ServiceFR(Service):
         if self._target_face is not None:
             pass
             _face = cv2.cvtColor(self._target_face, cv2.COLOR_BGR2RGB)
-            cv2.imshow('Target', _face)
+            f = cv2.resize(_face, (self._frame.shape[1], self._frame.shape[0]))
+            cv2.imshow('Target', f)
 
         if self._face_rect is not None:
             _value = "SAME"
             if color[2] == 255:
                 _value = "NOT SAME"
             cv2.putText(self._frame, _value,
-                        (self._face_rect['x'], self._face_rect['y']+10),
+                        (self._face_rect['x'], self._face_rect['y']-10),
                         cv2.FONT_HERSHEY_SIMPLEX,
                         1,color,2)
             cv2.rectangle(self._frame, (self._face_rect['x'], self._face_rect['y']),

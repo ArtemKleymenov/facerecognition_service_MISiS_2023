@@ -29,7 +29,7 @@ class Camera:
 
         :param capture: Экземпляр класса для захвата видео из видеофайлов, последовательностей изображений или камер.
 
-        `Подробнее <https://docs.opencv.org/3.4/d8/dfe/classcv_1_1VideoCapture.html>`.
+        `Подробнее <https://docs.opencv.org/3.4/d8/dfe/classcv_1_1VideoCapture.html>`_.
         """
         while True:
             with self.lock:

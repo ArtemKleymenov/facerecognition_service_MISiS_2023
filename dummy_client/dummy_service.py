@@ -19,7 +19,7 @@ class ServiceDummy(Service):
         try:
             # while True:
             time.sleep(2)
-            self.startTracking(ip="localhost", port=8888)
+            self.stopTracking(ip="localhost", port=8888)
         finally:    
             # Когда работа окончена, следует остановить сервис
             self.stop()
